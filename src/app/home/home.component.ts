@@ -6,7 +6,7 @@ import { MenuItemService } from '../services/menu-item.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+   menu:any
   constructor(private MenuItemService:MenuItemService) { }
 
   ngOnInit(): void {
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   
   getmenus(){
     this.MenuItemService.getmenu().subscribe((data) =>{
-      console.log(data)
+      this.menu = data
     })
   }
 }
