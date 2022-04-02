@@ -22,3 +22,16 @@ ul li{
 .form-group{
     margin-top: 10px;
 }
+.socialicons ul, .locations ul{
+    margin: 0;
+    padding: 0;
+    color: #FFFFFF;
+}
+.socialicons ul li a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.locations ul li a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
