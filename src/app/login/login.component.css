@@ -6,6 +6,10 @@
     width: 30%;
     margin: auto;
     margin-top: 70px;
+    border: 1px solid #91972A;
+    padding: 10px;
+    padding-bottom: 50px;
+    border-radius: 20px;
 }
 .form-group{
     margin-top: 10px;
@@ -19,4 +23,10 @@
     color: #91972A;
     font-weight: bold;
     font-size: 14px;
+}
+.login_text{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #91972A;
 }
