@@ -37,3 +37,7 @@
 ::placeholder{
     color: #91972A !important;
 }
+label{
+    color: #91972A;
+    font-weight: bold;
+}
