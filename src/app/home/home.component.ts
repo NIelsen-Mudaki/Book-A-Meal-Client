@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   getmenus(){
     this.MenuItemService.getmenu().subscribe((data) =>{
       this.menu = data
+      console.log(this.menu)
     })
   }
 }

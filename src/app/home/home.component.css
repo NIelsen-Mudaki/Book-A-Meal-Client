@@ -30,3 +30,55 @@
     margin: auto;
     margin-top: 70px;
 }
+.food_items .card{
+    border: 1px solid #91972A;
+    width: 240px;
+    position: relative;
+    padding: 8px;
+}
+.flex_btn_price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.food_items{
+    display: flex;
+    column-gap: 40px;
+    row-gap: 40px;
+    margin-bottom: 40px;
+}
+.flex_btn_price .price{
+    font-weight: bold;
+    font-size: 14px;
+}
+.flex_btn_price button{
+    background-color: #91972A;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px 5px 15px;
+    color: #FFFFFF;
+}
+.card .images{
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 70px;
+    height: 70px;
+}
+.card .images img{
+    border-radius: 50%;
+}
+.menu_items{
+    margin: 30px;
+}
+.meals_title{
+    font-size: 19px;
+    color: #91972A;
+    font-weight: bold;
+    margin: 30px;
+    text-align: center;
+}
+.card .name{
+    font-weight: bold;
+    font-size: 14px;
+}
