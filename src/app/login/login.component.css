@@ -10,3 +10,7 @@
 .form-group{
     margin-top: 10px;
 }
+.flex_links{
+    display: flex;
+    justify-content: space-between;
+}
