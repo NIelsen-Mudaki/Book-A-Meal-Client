@@ -2,7 +2,7 @@
 <h2 class="text-center green">Menu</h2>
 <div class="row">
 
-  <div class="col-12 col-md-6 col-lg-6" *ngFor="let menu of menuList">
+  <div class="col-12 col-md-6 col-lg-6" *ngFor="let menu of menuList;let i=index">
     <div class="card menu-card p-3">
       <p class="text-center text-lg-start"><strong>Name: {{menu.meal}}</strong></p>
 
@@ -15,10 +15,12 @@
 
       </div>
       <div class="menu-footer d-flex align-items-center mt-5 justify-content-between">
-        <button class="btn green-button fw-bold">Reserve</button>
+        <button class="btn green-button fw-bold" (click)="addToCart(menu)">Reserve</button>
         <span class="mx-5"><strong>Ksh. {{menu.price}}</strong></span>
       </div>
     </div>
   </div>
 </div>
+
+<!-- <app-cart [menu]="menuList"></app-cart> -->
 </div>
