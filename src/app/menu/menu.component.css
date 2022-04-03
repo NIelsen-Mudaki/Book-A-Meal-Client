@@ -5,7 +5,7 @@
 
 .menu-card{
 position: relative;
-margin-top:5rem;
+margin-top:2rem;
 min-height:14rem
 }
 
@@ -35,8 +35,9 @@ min-height:14rem
 
   .menu-card{
     position: relative;
-    margin-top:10rem;
-    min-height:14rem
+    margin-top:8rem;
+    min-height:14rem;
+    width: 80%;
     }
 
 
