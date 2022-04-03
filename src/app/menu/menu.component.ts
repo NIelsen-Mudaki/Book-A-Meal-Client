@@ -33,14 +33,15 @@ export class MenuComponent implements OnInit {
     cart.forEach((item:any) => {
       if (item.id===menuItem.id){
         itemExists=true;
-        
+        alert('item already in cart')
       }
     });
 
     if (itemExists==false){
     cart.push(menuItem);
     localStorage.setItem("cart",JSON.stringify(cart))
-
+    alert("Item added to cart")
+    
     }
     console.log(cart)
   } 
