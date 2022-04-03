@@ -9,11 +9,13 @@ export class MenuComponent implements OnInit {
   menuList:any;
   // cart:{}[] =[{'meal':'rice'}]
   cart:{}[] =[]
+  cartItemCount:number=0
   constructor(private menuService:MenuService) { }
 
   ngOnInit(): void {
     try{
-    JSON.parse(localStorage.getItem("cart") || "")
+    let cart=JSON.parse(localStorage.getItem("cart") || "")
+    this.cartItemCount=cart.length
 
     }
     catch{
@@ -43,6 +45,7 @@ export class MenuComponent implements OnInit {
     alert("Item added to cart")
     
     }
+    this.cartItemCount=cart.length
     console.log(cart)
   } 
 }
