@@ -1,1 +1,24 @@
-<p>menu works!</p>
+<div class="container">
+<h2 class="text-center green">Menu</h2>
+<div class="row">
+
+  <div class="col-12 col-md-6 col-lg-6" *ngFor="let menu of menuList">
+    <div class="card menu-card p-3">
+      <p><strong>Name: {{menu.meal}}</strong></p>
+
+      <div class="content d-flex justify-content-between">
+        <div class="description">
+
+          {{menu.description}}
+        </div>
+        <img src="https://res.cloudinary.com/do94dd6pt/{{menu.image}}" alt="" class="menu-image img-fluid">
+
+      </div>
+      <div class="menu-footer d-flex align-items-center mt-5 justify-content-between">
+        <button class="btn green-button">Reserve</button>
+        <span class="mx-5"><strong>Ksh. {{menu.price}}</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

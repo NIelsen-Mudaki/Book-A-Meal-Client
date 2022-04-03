@@ -1,0 +1,24 @@
+.green{
+
+  color:#868E27;
+}
+
+.menu-card{
+position: relative;
+margin-top:10rem;
+min-height:14rem
+}
+
+.menu-image{
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  top:-4rem;
+  right: -4rem;
+  border-radius: 50%;
+}
+
+.green-button{
+  background-color:#868E27;
+  color:white;
+}
