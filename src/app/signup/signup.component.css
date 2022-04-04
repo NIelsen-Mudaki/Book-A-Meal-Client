@@ -1,0 +1,34 @@
+.signupform{
+    width: 30%;
+    margin: auto;
+    margin-top: 40px;
+    border: 1px solid rgba(177, 168, 47, .4);
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: 2px 3px 4px rgba(177, 168, 47, .4);
+}
+#submitbtn{
+    background-color: #91972A;
+}
+#useremail,#clientname,#contact,#passwords,#confirmpasswords{
+    border: 1px solid #91972A;
+}
+::placeholder{
+    color: #91972A !important;
+}
+label{
+    font-size: 14px;
+    font-weight: bold;
+    color: #91972A;
+}
+.form-group a{
+    font-weight: bold;
+    color: #91972A;
+}
+.signup{
+    font-weight: bold;
+    text-align: center;
+    color: #91972A;
+    font-size: 17px;
+}

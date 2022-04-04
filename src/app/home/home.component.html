@@ -1,1 +1,25 @@
-<p>home works!</p>
+<app-navbar></app-navbar>
+<div class="body">
+    <div class="landing_page">
+       <div class="texts">
+             <div class="text">Welcome to B.A.M, we are commited <br> to better and quality sevices <br> to our valued customers.</div>
+             <div class="gotomenu"><a routerLink="/menu"><button class="btn text-light">See Menu</button></a></div>
+             <div class="scrolldown"><img src="../../assets/images/down.png" height="50px" width="40px" alt=""></div>
+       </div>
+    </div>
+    <div class="menu_items">
+        <div class="meals_title">Meals</div>
+        <div class="food_items">
+            <div class="card" *ngFor="let menu of menu; let i = index">
+                    <div class="name">{{ menu.meal }}</div>
+                    <div class="images"><img src="https://res.cloudinary.com/do94dd6pt/{{ menu.image }}" height="100%" width="100%" alt=""></div>
+                    <div class="description">{{ menu.description }}</div>
+                    <div class="flex_btn_price">
+                        <div class="buy"><button>Reserve</button></div>
+                        <div class="price">Kshs. {{ menu.price }}</div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
