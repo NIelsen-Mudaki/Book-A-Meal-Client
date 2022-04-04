@@ -12,7 +12,9 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
+total_cart(){
+  
+}
 
 
 }
