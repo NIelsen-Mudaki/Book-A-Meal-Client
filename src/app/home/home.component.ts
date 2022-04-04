@@ -6,7 +6,7 @@ import { MenuItemService } from '../services/menu-item.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-   menu:any
+  menu:any
   constructor(private MenuItemService:MenuItemService) { }
 
   ngOnInit(): void {
