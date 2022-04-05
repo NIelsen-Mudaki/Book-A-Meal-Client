@@ -30,14 +30,15 @@
     margin: auto;
     margin-top: 70px;
 }
-.food_items .card{
+.food_items .cards{
     border: 1px solid #91972A;
-    width: 240px;
+    width: 4000px;
     position: relative;
     padding: 8px;
 }
 .flex_btn_price{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -58,14 +59,14 @@
     padding: 5px 15px 5px 15px;
     color: #FFFFFF;
 }
-.card .images{
+.cards .images{
     position: absolute;
     top: -20px;
     right: -20px;
     width: 70px;
     height: 70px;
 }
-.card .images img{
+.cards .images img{
     border-radius: 50%;
 }
 .menu_items{
@@ -78,7 +79,7 @@
     margin: 30px;
     text-align: center;
 }
-.card .name{
+.cards .name{
     font-weight: bold;
     font-size: 14px;
 }
