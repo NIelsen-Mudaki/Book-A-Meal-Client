@@ -1,0 +1,13 @@
+.body{
+    /*text-align: center;*/
+    margin-left: 30px;
+    margin-right: 30px;
+    
+}
+.price{
+    font-size: small;
+    
+}
+#btn {
+    background-color: #868E27 ;
+}
