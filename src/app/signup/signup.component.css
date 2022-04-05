@@ -32,3 +32,13 @@ label{
     color: #91972A;
     font-size: 17px;
 }
+@media screen and (max-width: 1000px){
+    .signupform{
+        width: 60%;
+    }
+}
+@media screen and (max-width: 400px){
+    .signupform{
+        width: 100%;
+    }
+}
