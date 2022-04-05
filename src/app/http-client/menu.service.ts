@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MenuService {
-  url:string='http://localhost:8000/api/menu/'
+  url:string='http://localhost:9000/api/menu/'
   constructor(private http:HttpClient) { }
 
 public getMenu():Observable<any[]>{
