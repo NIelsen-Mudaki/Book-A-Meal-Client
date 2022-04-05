@@ -5,7 +5,7 @@
 <app-navbar></app-navbar>
 <div class=" body my-5">
     <h2 class="text-center">Add to Cart!</h2>
-    <div>
+    <div ngif="cart.length>0">
         <table class="table">
             <thead>
                 <tr>
@@ -36,8 +36,16 @@
         </table>
 
         <div class="checkout">
-            <button class="btn btn-success" id="btn" type="submit">Confirm Reservation</button>
+            <button class="btn btn-success" id="btn" type="submit" (click)="submit_order()">Confirm Reservation</button>
         </div>
     </div>
+
+    <div ngif="cart.length==0">
+        <p>Cart is empty</p>
+
+    </div>
+</div>
+
 </div>
 <app-footer></app-footer>
+
