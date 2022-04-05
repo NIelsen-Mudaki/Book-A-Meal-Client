@@ -16,7 +16,48 @@ export class HomeComponent implements OnInit {
   getmenus(){
     this.MenuItemService.getmenu().subscribe((data) =>{
       this.menu = data
-      console.log(this.menu)
     })
   }
+  addtocart(id:any){
+    let item_tocart:any
+    let cart:any = localStorage.getItem("cart")
+    let stored_cart = JSON.parse(cart)
+    let items_cart:any
+    let final_item:any = []
+    let items = this.menu.forEach((x:any) => {
+      if(x.id == id){
+        items_cart = x
+        console.log(x)
+        console.log(id)
+      }else{
+        
+      }
+    })
+    let item_match = 'false'
+    let item_add:any
+    if(cart){
+      let setitems = stored_cart.forEach((y:any) =>{
+        if(y.id == items_cart.id){
+          alert('item already added')
+          item_match = 'true'
+        }else{
+          item_add = items_cart
+        }
+      })
+    }else{
+      cart = [items_cart]
+      localStorage.setItem("cart", JSON.stringify(cart))
+    }
+
+    if(item_add && item_match == 'false'){
+      stored_cart.push(item_add)
+      localStorage.setItem("cart", '')
+      localStorage.setItem("cart", JSON.stringify(stored_cart))
+    }
+  }
+  
 }
+function indesx(indesx: any) {
+  throw new Error('Function not implemented.');
+}
+
