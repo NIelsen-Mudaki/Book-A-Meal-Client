@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  url = 'http://127.0.0.1:9000/api/login'
+  url = 'http://127.0.0.1:8000/api/login'
   constructor(private http:HttpClient) { }
   login(credentials:any):Observable<any>{
     const httpOptions = {
@@ -16,7 +16,7 @@ export class LoginService {
   }
 
   getuser(token:any):Observable<any>{
-    let url = 'http://127.0.0.1:9000/api/user/'
+    let url = 'http://127.0.0.1:8000/api/user/'
     return this.http.post(url, token)
   }
 }
