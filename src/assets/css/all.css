@@ -17,9 +17,8 @@
 .fat,
 .fa-thin,
 .fad,
-.fa-duotone,
-.fab,
-.fa-brands {
+.fa-duotone
+ {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   display: var(--fa-display, inline-block);

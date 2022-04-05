@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,9 +10,9 @@ import { CookieService } from 'ngx-cookie-service';
 export class LoginComponent implements OnInit {
   useremail:any
   password:any
-  response = ''
+  response:any
 
-  constructor(private LoginService:LoginService, private CookieService:CookieService) { }
+  constructor(private LoginService:LoginService, private CookieService:CookieService, private route:Router) { }
 
   ngOnInit(): void {
   }
@@ -21,12 +22,12 @@ export class LoginComponent implements OnInit {
       'password':this.password
     }
     this.LoginService.login(credentials).subscribe((data) =>{
-      this.response = data
-      try{
-        let getcookies = this.CookieService.get("jwt")
-      }
-      catch{
-          this.response = 'Authentication failed, wrong  username or password provided'
+      console.log(data.jwt)
+      if(typeof(data) == 'object'){
+           this.CookieService.set("jwt", data.jwt)
+           this.route.navigate(['/'])
+      }else{
+        this.response = data
       }
     })
     
