@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
   }
 
 total_cart(value:String){
-  console.log(value);
+
 }
 get_qty(item:any,quantity:any){
   let itemId=document.getElementById(item)
