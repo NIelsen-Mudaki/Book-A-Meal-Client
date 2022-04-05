@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
       }
       this.LoginService.getuser(token).subscribe((data) => {
         this.user_obj = data
+        console.log(data)
         this.setuser()
       })
   }
