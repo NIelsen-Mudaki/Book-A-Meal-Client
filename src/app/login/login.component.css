@@ -40,3 +40,14 @@ label{
     color: #91972A;
     font-weight: bold;
 }
+
+@media screen and (max-width: 1000px){
+    .loginforms{
+        width: 60%;
+    }
+}
+@media screen and (max-width: 400px){
+    .loginforms{
+        width: 100%;
+    }
+}
