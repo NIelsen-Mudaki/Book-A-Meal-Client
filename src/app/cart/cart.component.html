@@ -5,163 +5,29 @@
 
 <div class=" body my-5">
     <h2 class="text-center">Add to Cart!</h2>
-    <form method="post">    
-        <div class="column">
-            <div class="row">
-                <div class="col-md-2">
-                    <h4>Item ID</h4>
-                </div>
-                <div class="col-md-4">
-                    <h4>Meal Option</h4>
-                </div>
-                <div class="col-md-2">
-                    <h4>Price</h4>
-                </div>
-                <div class="col-md-2">
-                    <h4>Quantity</h4>
-                </div>
-                <div class="col-md-2">
-                    <h4>Action</h4>
-                </div>
-            </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Item ID</th>
+                    <th>Meal Option</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Action</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let item of cart'>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.meal }}</td>
+                    <td>{{ item.price }}</td>
+                    <td><input (change)="get_qty(item.id,quantity.value)" type="number" #quantity id="{{ item.id}}" name="quantity" class="form-control input-number" value="{{ item.qty }}" min="1" max="15"></td>
+                    <td><button class="btn btn-danger">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="checkout">
+            <button class="btn btn-success" id="btn" type="submit">Confirm Reservation</button>
         </div>
-        <div class="column">
-            <div class="row">
-                <div class="col-md-2">
-                    <h6>#6777A</h6>
-                </div>
-                <div class="col-md-4">
-                    <p>Meat & Rice</p>
-                </div>
-                <div class="col-md-2">
-                    <h6>Ksh. 350</h6>
-                </div>
-                <div class="col-md-2">
-                    <input type="number" id="quantity" name="quantity" class="form-control input-number" value="0" min="1" max="100">
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" btn-danger>Delete</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <h6>#6777A</h6>
-                </div>
-                <div class="col-md-4">
-                    <p>Meat & Rice</p>
-                </div>
-                <div class="col-md-2">
-                    <h6>Ksh. 350</h6>
-                </div>
-                <div class="col-md-2">
-                    <input type="number" id="quantity" name="quantity" class="form-control input-number" value="0" min="1" max="100">
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" btn-danger>Delete</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <h6>#6777A</h6>
-                </div>
-                <div class="col-md-4">
-                    <p>Meat & Rice</p>
-                </div>
-                <div class="col-md-2">
-                    <h6>Ksh. 350</h6>
-                </div>
-                <div class="col-md-2">
-                    <input type="number" id="quantity" name="quantity" class="form-control input-number" value="0" min="1" max="100">
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" btn-danger>Delete</button>
-                </div>
-            </div>    
-            <div class="row">
-                <div class="col-md-2">
-                    <h6>#6777A</h6>
-                </div>
-                <div class="col-md-4">
-                    <p>Meat & Rice</p>
-                </div>
-                <div class="col-md-2">
-                    <h6>Ksh. 350</h6>
-                </div>
-                <div class="col-md-2">
-                    <input type="number" id="quantity" name="quantity" class="form-control input-number" value="0" min="1" max="100">
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" btn-danger>Delete</button>
-                </div>
-            </div>    
-            <div class="row">
-                <div class="col-md-2">
-                    <h6>#6777A</h6>
-                </div>
-                <div class="col-md-4">
-                    <p>Meat & Rice</p>
-                </div>
-                <div class="col-md-2">
-                    <h6>Ksh. 350</h6>
-                </div>
-                <div class="col-md-2">
-                    <input type="number" id="quantity" name="quantity" class="form-control input-number" value="0" min="1" max="100">
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" btn-danger>Delete</button>
-                </div>
-            </div>    
-            <div class="row">
-                <div class="col-md-2">
-                    <h6>#6777A</h6>
-                </div>
-                <div class="col-md-4">
-                    <p>Meat & Rice</p>
-                </div>
-                <div class="col-md-2">
-                    <h6>Ksh. 350</h6>
-                </div>
-                <div class="col-md-2">
-                    <input type="number" id="quantity" name="quantity" class="form-control input-number" value="0" min="1" max="100">
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" btn-danger>Delete</button>
-                </div>
-            </div>    
-            <div class="row">
-                <div class="col-md-2">
-                    <h6>#6777A</h6>
-                </div>
-                <div class="col-md-4">
-                    <p>Meat & Rice</p>
-                </div>
-                <div class="col-md-2">
-                    <h6>Ksh. 350</h6>
-                </div>
-                <div class="col-md-2">
-                    <input type="number" id="quantity" name="quantity" class="form-control input-number" value="0" min="1" max="100">
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" btn-danger>Delete</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <h6>#6777A</h6>
-                </div>
-                <div class="col-md-4">
-                    <p>Meat & Rice</p>
-                </div>
-                <div class="col-md-2">
-                    <h6>Ksh. 350</h6>
-                </div>
-                <div class="col-md-2">
-                    <input type="number" id="quantity" name="quantity" class="form-control input-number" value="0" min="1" max="100">
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" bg-danger>Delete</button>
-                </div>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>

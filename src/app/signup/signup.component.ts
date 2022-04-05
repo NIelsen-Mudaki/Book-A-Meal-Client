@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupService } from '../services/signup.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
   passwords = ''
   confirmpasswords = ''
   returned = ''
-  constructor(private SignupService:SignupService) { }
+  constructor(private SignupService:SignupService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +26,11 @@ export class SignupComponent implements OnInit {
         'password':this.passwords
     }
     this.SignupService.adduser(credentials).subscribe((data) =>{
-      this.returned = data
+      if(data == 'Account created successfully!'){
+        this.router.navigate(['/login'])
+      }else{
+        this.returned = data
+      }
     })
   }
 }

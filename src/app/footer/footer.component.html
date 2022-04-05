@@ -19,12 +19,14 @@
         <div class="newslaterform">
             <form action="" method="post">
                 <p>signup to our newslatter to get updated when we add something new.</p>
+                <div class="text-center text-success">{{ success }}</div>
+                <div class="text-center text-danger">{{ error }}</div>
                 <div class="form-group">
                     <label for="newslater">Email Adress</label>
-                    <input type="text" name="newslater" id="newslater" required class="form-control shadow-none" placeholder="Enter email adress">
+                    <input type="text" [(ngModel)]="emailadress" autocomplete="off" name="newslater" id="newslater" required class="form-control shadow-none" placeholder="Enter email adress">
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Sign-Up" id="submitbtn" class="btn text-light">
+                    <input type="submit" value="Sign-Up" (click)="addemail()" id="submitbtn" class="btn text-light">
                 </div>
             </form>
         </div>
