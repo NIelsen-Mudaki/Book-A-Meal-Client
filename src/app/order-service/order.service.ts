@@ -6,10 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OrderService {
-  url:string='http://127.0.0.1:8000/api/customer/2/orders/';
+  
   constructor(private http:HttpClient) { }
     
-  public getOrders():Observable<any[]>{
-    return this.http.get<any[]>(this.url)
+  public getOrders(id:any):Observable<any[]>{
+    return this.http.get<any[]>('http://127.0.0.1:8000/api/customer/'+id+'/orders/')
   }
 }
