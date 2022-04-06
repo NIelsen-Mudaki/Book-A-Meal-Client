@@ -126,13 +126,10 @@ deleteItem(id:any){
   cartItem.forEach((x:any)=>{
     if(x.id == id){
       itemindex = cartItem.indexOf(x)
-     // console.log(cartItem.indexOf(x))
-      //console.log(x)
     }
   })
   
   cartItem.splice(itemindex,1)
-//  console.log(cartItem.length)
 
 let finalItems = JSON.stringify(cartItem)
   localStorage.setItem('cart',finalItems)
