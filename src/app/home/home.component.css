@@ -32,9 +32,10 @@
 }
 .food_items .cards{
     border: 1px solid #91972A;
-    width: 4000px;
+    width: 350px;
     position: relative;
     padding: 8px;
+    border-radius: 10px;
 }
 .flex_btn_price{
     display: flex;
@@ -44,6 +45,7 @@
 }
 .food_items{
     display: flex;
+    flex-wrap: wrap;
     column-gap: 40px;
     row-gap: 40px;
     margin-bottom: 40px;
