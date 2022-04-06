@@ -10,6 +10,5 @@ export class UserloginService {
 
   loginuser(users:any){
     this.user = users
-    console.log(this.user)
   }
 }
