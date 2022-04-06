@@ -46,6 +46,6 @@ export class MenuComponent implements OnInit {
     
     }
     this.cartItemCount=cart.length
-    console.log(cart)
+    // console.log(cart)
   } 
 }
