@@ -1,5 +1,10 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { OrderService } from '../http-client/order.service';
+import { CookieService } from 'ngx-cookie-service';
+import { LoginService } from '../services/login.service';
+import { UserloginService } from '../services/userlogin.service';
+
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -9,7 +14,9 @@ export class CartComponent implements OnInit {
   @Input() menu:any;
   cart:any[] =[]
   cartTotal:any=0
-  constructor(private orderservice:OrderService) { }
+  user:any;
+  user_obj:any;
+  constructor(private orderservice:OrderService,private CookieService:CookieService, public LoginService:LoginService, private UserloginService:UserloginService) { }
 
   ngOnInit(): void {
     this.update_cart()
@@ -74,27 +81,41 @@ empty_cart(){
 
 }
 
+
+
+
 submit_order(){
-  let confirmed=confirm('Place the order?')
-  if (!confirmed){
-    return
 
+  try{
+    let customer:any=this.UserloginService.user
+    console.log('logged in');
+
+    let confirmed=confirm('Place the order?')
+    if (!confirmed){
+      return
+  
+    }
+    let current_order=JSON.parse(localStorage.getItem("cart") || "")
+  
+    let requestData={
+  
+      "customer_id":customer.id,
+      "order_total_price":this.cartTotal,
+      "order-items":this.cart
+    }
+  
+    this.orderservice.create_order(requestData).subscribe((data)=>{
+  
+      this.empty_cart()
+  
+      alert('Order submited successfully')
+    })
   }
-  let current_order=JSON.parse(localStorage.getItem("cart") || "")
-
-  let requestData={
-
-    "customer_id":2,
-    "order_total_price":this.cartTotal,
-    "order-items":this.cart
+  catch{
+    alert('please login to place an order')
   }
 
-  this.orderservice.create_order(requestData).subscribe((data)=>{
 
-    this.empty_cart()
-
-    alert('Order submited successfully')
-  })
 
 }
 
