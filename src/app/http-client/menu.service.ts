@@ -13,5 +13,4 @@ public getMenu():Observable<any[]>{
   return this.http.get<any[]>(this.url)
 }
 
-
 }

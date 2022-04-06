@@ -118,6 +118,25 @@ submit_order(){
 
 
 }
+deleteItem(id:any){
+  let cart:any = localStorage.getItem('cart')
+  let cartItem = JSON.parse(cart)
+  let itemindex:any
+  console.log(cartItem.length)
+  cartItem.forEach((x:any)=>{
+    if(x.id == id){
+      itemindex = cartItem.indexOf(x)
+     // console.log(cartItem.indexOf(x))
+      //console.log(x)
+    }
+  })
+  
+  cartItem.splice(itemindex,1)
+//  console.log(cartItem.length)
 
+let finalItems = JSON.stringify(cartItem)
+  localStorage.setItem('cart',finalItems)
+  window.location.reload()
+}
 
 }
