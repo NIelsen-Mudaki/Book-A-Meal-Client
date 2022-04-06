@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
         
       }
     })
-    items_cart['qty'] = 1
     let item_match = 'false'
     let item_add:any
     if(cart){
