@@ -17,6 +17,8 @@ export class CartComponent implements OnInit {
   user:any;
   user_obj:any;
   constructor(private orderservice:OrderService,private CookieService:CookieService, public LoginService:LoginService, private UserloginService:UserloginService) { }
+  // constructor(private orderservice:OrderService) { }
+
 
   ngOnInit(): void {
     this.update_cart()
@@ -85,6 +87,10 @@ empty_cart(){
 
 
 submit_order(){
+  let confirmed=confirm('Place the order?')
+  if (!confirmed){
+    return
+
 
   try{
     let customer:any=this.UserloginService.user
@@ -129,14 +135,20 @@ deleteItem(id:any){
      // console.log(cartItem.indexOf(x))
       //console.log(x)
     }
+  this.orderservice.create_order(requestData).subscribe((data)=>{
+
+    this.empty_cart()
+
+    alert('Order submited successfully')
   })
   
   cartItem.splice(itemindex,1)
 //  console.log(cartItem.length)
 
+
 let finalItems = JSON.stringify(cartItem)
   localStorage.setItem('cart',finalItems)
   window.location.reload()
 }
-
 }
+
