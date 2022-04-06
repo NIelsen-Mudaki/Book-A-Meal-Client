@@ -10,12 +10,12 @@
     <div class="menu_items">
         <div class="meals_title">Meals</div>
         <div class="food_items">
-            <div class="card" *ngFor="let menu of menu; let i = index">
+            <div class="cards" id="foodcard" *ngFor="let menu of menu; let i = index">
                     <div class="name">{{ menu.meal }}</div>
                     <div class="images"><img src="https://res.cloudinary.com/do94dd6pt/{{ menu.image }}" height="100%" width="100%" alt=""></div>
                     <div class="description">{{ menu.description }}</div>
                     <div class="flex_btn_price">
-                        <div class="buy"><button>Reserve</button></div>
+                        <div class="buy"><button (click)="addtocart(menu.id)">Reserve</button></div>
                         <div class="price">Kshs. {{ menu.price }}</div>
                     </div>
             </div>

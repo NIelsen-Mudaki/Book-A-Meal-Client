@@ -1,5 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
-
+import { OrderService } from '../http-client/order.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -9,7 +9,7 @@ export class CartComponent implements OnInit {
   @Input() menu:any;
   cart:any[] =[]
   cartTotal:any=0
-  constructor() { }
+  constructor(private orderservice:OrderService) { }
 
   ngOnInit(): void {
     this.update_cart()
@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
   }
 
 total_cart(value:String){
-  console.log(value);
+
 }
 get_qty(item:any,quantity:any){
   let itemId=document.getElementById(item)
@@ -65,5 +65,38 @@ get_order_total(){
   }
   this.cartTotal=sum
 }
+
+empty_cart(){
+  
+  this.cart=[]
+  localStorage.setItem('cart',JSON.stringify(this.cart))
+  this.cartTotal=0
+
+}
+
+submit_order(){
+  let confirmed=confirm('Place the order?')
+  if (!confirmed){
+    return
+
+  }
+  let current_order=JSON.parse(localStorage.getItem("cart") || "")
+
+  let requestData={
+
+    "customer_id":2,
+    "order_total_price":this.cartTotal,
+    "order-items":this.cart
+  }
+
+  this.orderservice.create_order(requestData).subscribe((data)=>{
+
+    this.empty_cart()
+
+    alert('Order submited successfully')
+  })
+
+}
+
 
 }
