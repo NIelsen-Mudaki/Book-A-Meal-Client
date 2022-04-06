@@ -5,7 +5,6 @@ import { LoginService } from '../services/login.service';
 import { UserloginService } from '../services/userlogin.service';
 
 
-
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -15,15 +14,13 @@ export class CartComponent implements OnInit {
   @Input() menu:any;
   cart:any[] =[]
   cartTotal:any=0
-
-  current_user:any
   user:any;
   user_obj:any;
   constructor(private orderservice:OrderService,private CookieService:CookieService, public LoginService:LoginService, private UserloginService:UserloginService) { }
 
-
   ngOnInit(): void {
     this.update_cart()
+
     this.get_order_total()
   }
 
@@ -47,7 +44,7 @@ update_cart(){
   }
   
   catch{
-    // console.log('Cart is Empty')
+    console.log('Cart is Empty')
     //localStorage.setItem("cart",JSON.stringify(this.cart))
   }
 }
@@ -88,11 +85,6 @@ empty_cart(){
 
 
 submit_order(){
-  
-  this.getuserlogin()
-  let confirmed=confirm('Place the order?')
-  if (!confirmed){
-    // return
 
   try{
     let customer:any=this.UserloginService.user
@@ -124,11 +116,6 @@ submit_order(){
   }
 
 
-  this.orderservice.create_order(requestData).subscribe((data)=>{
-    this.empty_cart()
-    alert('Order submited successfully')
-
-
 
 }
 deleteItem(id:any){
@@ -142,7 +129,6 @@ deleteItem(id:any){
      // console.log(cartItem.indexOf(x))
       //console.log(x)
     }
-
   })
   
   cartItem.splice(itemindex,1)
@@ -152,11 +138,5 @@ let finalItems = JSON.stringify(cartItem)
   localStorage.setItem('cart',finalItems)
   window.location.reload()
 }
-getuserlogin(){
-  this.current_user = this.UserloginService.user
-  console.log("From cart")
-  console.log(this.current_user)
-}
-
 
 }
