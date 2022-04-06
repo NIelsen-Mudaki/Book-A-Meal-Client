@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../http-client/menu.service';
+import { AddToCartService } from '../http-client/add-to-cart.service';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -10,7 +11,7 @@ export class MenuComponent implements OnInit {
   // cart:{}[] =[{'meal':'rice'}]
   cart:{}[] =[]
   cartItemCount:number=0
-  constructor(private menuService:MenuService) { }
+  constructor(private menuService:MenuService,private addToMenuService:AddToCartService) { }
 
   ngOnInit(): void {
     try{
@@ -27,25 +28,32 @@ export class MenuComponent implements OnInit {
     })
   }
 
-  addToCart(menuItem:any){
-    let cart=JSON.parse(localStorage.getItem("cart") || "")
-    let itemExists=false
-    menuItem['qty']=1
+  // addToCart(menuItem:any){
+  //   let cart=JSON.parse(localStorage.getItem("cart") || "")
+  //   let itemExists=false
+  //   menuItem['qty']=1
     
-    cart.forEach((item:any) => {
-      if (item.id===menuItem.id){
-        itemExists=true;
-        alert('item already in cart')
-      }
-    });
+  //   cart.forEach((item:any) => {
+  //     if (item.id===menuItem.id){
+  //       itemExists=true;
+  //       alert('item already in cart')
+  //     }
+  //   });
 
-    if (itemExists==false){
-    cart.push(menuItem);
-    localStorage.setItem("cart",JSON.stringify(cart))
-    alert("Item added to cart")
+  //   if (itemExists==false){
+  //   cart.push(menuItem);
+  //   localStorage.setItem("cart",JSON.stringify(cart))
+  //   alert("Item added to cart")
     
-    }
-    this.cartItemCount=cart.length
-    console.log(cart)
-  } 
+  //   }
+  //   this.cartItemCount=cart.length
+  //   console.log(cart)
+  // } 
+
+  addToCart(menuItem:any){
+this.addToMenuService.addToCart(menuItem);
+let cart=JSON.parse(localStorage.getItem("cart") || "")
+
+this.cartItemCount=cart.length
+  }
 }
