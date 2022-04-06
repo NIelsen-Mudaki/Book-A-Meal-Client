@@ -21,8 +21,9 @@
                     <td>{{ item.id }}</td>
                     <td>{{ item.meal }}</td>
                     <td>{{ item.price }}</td>
-                    <td><input (change)="get_qty(item.id,quantity.value)" type="number" #quantity id="{{ item.id}}" name="quantity" class="form-control input-number" value="{{ item.qty }}" min="1" max="15" placeholder="1"></td>
-                    <td><button class="btn btn-danger" (click)="deleteItem(item.id)">Delete</button></td>
+
+                    <td><input (change)="get_qty(item.id,quantity.value)" type="number" #quantity id="{{ item.id}}" name="quantity" class="form-control input-number" value="{{ item.qty }}" min="1" max="15"></td>
+                    <td><button class="btn btn-danger">Delete</button></td>
                 </tr>
                 <tr>
                     <td></td>
