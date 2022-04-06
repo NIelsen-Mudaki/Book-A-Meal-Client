@@ -6,10 +6,18 @@ import { Observable } from 'rxjs';
 })
 export class UserloginService {
   user:any
+  cart_total:any = 0
   constructor() { }
 
   loginuser(users:any){
     this.user = users
-    console.log(this.user)
   }
+  
+  getcart(){
+    let cart=JSON.parse(localStorage.getItem("cart") || "")
+    this.cart_total = cart.length
+  }
+
 }
+
+
