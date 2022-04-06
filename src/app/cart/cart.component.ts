@@ -92,7 +92,7 @@ submit_order(){
   this.getuserlogin()
   let confirmed=confirm('Place the order?')
   if (!confirmed){
-    return
+    // return
 
   try{
     let customer:any=this.UserloginService.user
