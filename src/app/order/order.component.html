@@ -1,9 +1,41 @@
 <app-navbar></app-navbar>
-<div style="height: calc(100vh - 200px);" class="container">
+<div  class="container">
     <div class="content">
         <div class="current_tab">Order History /</div>
         <hr>
-        <table class="table">
+        <div class="accordion accordion-flush" id="accordionFlushExample" *ngFor="let order of orders">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  Order #{{order.id}}
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                   <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Meal Option</th>
+                                <th>Quantity</th>
+                                <th>Date</th>
+            
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of order.orderitem">
+                                <td>{{ order.id }}</td>
+                                <td>{{ data.meal }}</td>
+                                <td>{{data.quantity}}</td>
+                                <td>{{order.order_date|date}}</td>
+                            </tr>
+                        </tbody>
+                   </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- <table class="table table-borderless">
             <thead>
                 <tr>
                     <th>Order ID</th>
@@ -13,15 +45,18 @@
 
                 </tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let order of orders">
-                    <td>{{order.id}}</td>
-                    <td>{{order.menu_id.meal}}</td>
-                    <td>{{order.quantity}}</td>
-                    <td>{{order.order_date|date}}</td>
-                </tr>
+            <tbody *ngFor="let order of orders">
+                 <div *ngFor="let order of orders">
+                    <tr><td colspan="2">{{ order.id }}</td> <td>{{order.order_date}}</td> <td>{{order.order_total_price}}</td></tr>
+                    <tr *ngFor="let data of order.orderitem">
+                        <td>{{ order.id }}</td>
+                        <td>{{ data.meal }}</td>
+                        <td>{{order.quantity}}</td>
+                        <td>{{order.order_date|date}}</td>
+                    </tr>
+                </div> 
             </tbody>
-        </table>
+        </table> -->
     </div>
 </div>
 <div class="container">

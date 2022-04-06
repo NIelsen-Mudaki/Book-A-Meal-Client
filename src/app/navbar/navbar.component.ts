@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../services/login.service';
 import { UserloginService } from '../services/userlogin.service';
+import { OrderService } from '../order-service/order.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ export class NavbarComponent implements OnInit {
   user:any
   user_obj:any
   cart:any
-  constructor(private CookieService:CookieService, public LoginService:LoginService, private UserloginService:UserloginService) { }
+  constructor(private CookieService:CookieService, private OrderService:OrderService, public LoginService:LoginService, private UserloginService:UserloginService) { }
 
   ngOnInit(): void {
     this.getuser()
@@ -24,9 +25,9 @@ export class NavbarComponent implements OnInit {
       }
       this.LoginService.getuser(token).subscribe((data) => {
         this.user_obj = data
-        console.log(data)
         this.setuser()
         this.setcart()
+        this.setorderuser()
       })
   }
   setuser(){
@@ -35,7 +36,8 @@ export class NavbarComponent implements OnInit {
   setcart(){
     this.UserloginService.getcart()
     this.cart = this.UserloginService.cart_total
-    console.log('###############')
-    console.log(this.cart)
+  }
+  setorderuser(){
+    this.OrderService.getuserid(this.user_obj)
   }
 }

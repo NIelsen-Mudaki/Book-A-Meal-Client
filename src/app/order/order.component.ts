@@ -4,7 +4,6 @@ import { GetUserOrdersService } from '../http-client/get-user-orders.service';
 import { UserloginService } from '../services/userlogin.service';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../services/login.service';
-
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -17,45 +16,22 @@ export class OrderComponent implements OnInit {
   user:any;
   activeUser:any
   user_obj:any;
+  token:any
   constructor(private CookieService:CookieService,public LoginService:LoginService,private orderService:OrderService,private getUserOrdersService:GetUserOrdersService,private UserloginService:UserloginService) { }
 
   ngOnInit(): void {
-    this.getuser()
-    // this.getOrders()
-    this.getUserOrders()
+    this.getorders()
   }
 
-  getuser(){
-    let user = this.CookieService.get('jwt')
-    let token = {
-      'jwt':user
-    }
-    this.LoginService.getuser(token).subscribe((data) => {
-      this.user_obj = data
-      console.log(data)
-      this.setuser()
-    
-    })
-}
   setuser(){
-  this.UserloginService.loginuser(this.user_obj)
-  this.activeUser=this.UserloginService.user.id
+    this.user = this.orderService.user
   }
-
-
-  getUserOrders(){
-
-      this.getUserOrdersService.get_user_orders(this.activeUser).subscribe((data)=>{
-
-        this.userOrders=data
-      });
-    
-    
-    // catch{
-
-    //   alert('please login')
-    // }
-
-
+  getorders(){
+    this.setuser()
+    this.orderService.getOrders().subscribe((data) =>{
+      console.log(data)
+      this.orders = data
+      setTimeout("getorders", 3000)
+    })
   }
 }
