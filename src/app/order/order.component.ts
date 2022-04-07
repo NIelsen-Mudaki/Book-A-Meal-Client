@@ -20,7 +20,10 @@ export class OrderComponent implements OnInit {
   constructor(private CookieService:CookieService,public LoginService:LoginService,private orderService:OrderService,private getUserOrdersService:GetUserOrdersService,private UserloginService:UserloginService) { }
 
   ngOnInit(): void {
+  }
+  loadOrders(){
     this.getorders()
+
   }
 
   setuser(){
@@ -31,7 +34,9 @@ export class OrderComponent implements OnInit {
     this.orderService.getOrders().subscribe((data) =>{
       console.log(data)
       this.orders = data
-      setTimeout("getorders", 3000)
+      // setTimeout("getorders", 3000)
     })
   }
+
+
 }
