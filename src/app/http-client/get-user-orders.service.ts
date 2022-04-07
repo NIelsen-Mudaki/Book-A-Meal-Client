@@ -9,7 +9,8 @@ export class GetUserOrdersService {
   constructor(private http:HttpClient) { }
   
 public get_user_orders(userid:any):Observable<any>{
-  let url=`http://localhost:8000/api/user/2/orders/`
+  console.log(userid)
+  let url=`http://localhost:8000/api/user/${userid}/orders/`
   return this.http.get<any[]>(url)
 
 

@@ -39,7 +39,7 @@ export class OrderComponent implements OnInit {
 }
   setuser(){
   this.UserloginService.loginuser(this.user_obj)
-  this.activeUser=this.UserloginService.user.id
+  this.activeUser=this.user_obj.id
   }
 
 
