@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../services/login.service';
 import { UserloginService } from '../services/userlogin.service';
 import { OrderService } from '../order-service/order.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,7 @@ export class NavbarComponent implements OnInit {
   user_obj:any
   cart:any
   constructor(private CookieService:CookieService, private OrderService:OrderService, public LoginService:LoginService, private UserloginService:UserloginService) { }
-
+  @Output() loggedUser=new EventEmitter<any>(); 
   ngOnInit(): void {
     this.getuser()
   }
@@ -28,6 +29,7 @@ export class NavbarComponent implements OnInit {
         this.setuser()
         this.setcart()
         this.setorderuser()
+        this.loggedUser.emit(this.user_obj)
       })
   }
   setuser(){
