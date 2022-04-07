@@ -6,7 +6,10 @@
 .menu-card{
 position: relative;
 margin-top:2rem;
-min-height:14rem
+min-height:14rem;
+border-color: #868E27;
+border-width: 1px!important;
+border-radius: 15px;
 }
 
 
