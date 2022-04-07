@@ -11,7 +11,10 @@
 .menu-card{
 position: relative;
 margin-top:2rem;
-min-height:14rem
+min-height:14rem;
+border-color: #868E27;
+border-width: 1px!important;
+border-radius: 15px;
 }
 
 
@@ -40,7 +43,7 @@ min-height:14rem
 
   .menu-card{
     position: relative;
-    margin-top:8rem;
+    margin-top:5rem;
     min-height:14rem;
     width: 80%;
     }

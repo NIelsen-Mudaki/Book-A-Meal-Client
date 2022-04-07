@@ -4,20 +4,16 @@
   </div>
 </div>
 <div class="container">
-<h2 class="text-center green">Menu</h2>
+<h2 class="text-center green mt-2">Menu</h2>
 <div class="row mb-5">
-
-  <div class="col-12 col-md-6 col-lg-6" *ngFor="let menu of menuList;let i=index">
-    <div class="card menu-card p-3">
-      <p class="text-center text-lg-start"><strong>Name: {{menu.meal}}</strong></p>
-
-      <div class="content d-flex justify-content-lg-between flex-column-reverse align-items-center align-items-lg-start">
+  <div class="col-12 col-md-12 col-lg-6" *ngFor="let menu of menuList;let i=index">
+    <div class="card menu-card p-3 ">
+      <p class="text-center text-lg-start text-md-start"><strong>Name: {{menu.meal}}</strong></p>
+      <div class="content d-flex justify-content-lg-between justify-content-md-between flex-column-reverse align-items-center align-items-lg-start align-items-md-start">
         <div class="description">
-
           {{menu.description}}
         </div>
         <img src="https://res.cloudinary.com/do94dd6pt/{{menu.image}}" alt="" class="menu-image img-fluid">
-
       </div>
       <div class="menu-footer d-flex align-items-center mt-5 justify-content-between">
         <button class="btn green-button fw-bold" (click)="addToCart(menu)">Reserve</button>
