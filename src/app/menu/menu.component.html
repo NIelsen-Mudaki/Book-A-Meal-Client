@@ -1,7 +1,10 @@
-<app-navbar></app-navbar>
+<div class="navbars">
+  <div class="fullmenu">
+      <app-navbar></app-navbar>
+  </div>
+</div>
 <div class="container">
 <h2 class="text-center green mt-2">Menu</h2>
-
 <div class="row mb-5">
   <div class="col-12 col-md-12 col-lg-6" *ngFor="let menu of menuList;let i=index">
     <div class="card menu-card p-3 ">
@@ -19,8 +22,6 @@
     </div>
   </div>
 </div>
-
-<!-- <app-cart [menu]="menuList"></app-cart> -->
 </div>
 
 <app-footer></app-footer>
