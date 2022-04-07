@@ -35,46 +35,6 @@
               </div>
             </div>
           </div>
-        <!-- <table class="table table-borderless">
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Meal Option</th>
-                    <th>Quantity</th>
-                    <th>Date</th>
-
-                </tr>
-            </thead>
-            <tbody *ngFor="let order of orders">
-                 <div *ngFor="let order of orders">
-                    <tr><td colspan="2">{{ order.id }}</td> <td>{{order.order_date}}</td> <td>{{order.order_total_price}}</td></tr>
-                    <tr *ngFor="let data of order.orderitem">
-                        <td>{{ order.id }}</td>
-                        <td>{{ data.meal }}</td>
-                        <td>{{order.quantity}}</td>
-                        <td>{{order.order_date|date}}</td>
-                    </tr>
-                </div> 
-            </tbody>
-        </table> -->
     </div>
-</div>
-<div class="container">
-<div *ngFor="let order of userOrders">
-
-    <div class="row">
-
-        <div class="col">{{order.order_ref}}</div>
-        <div class="col">{{order.order_total_price}}</div>
-        <div class="col">{{order.order_status}}</div>
-
-    </div>
-
-    <div *ngFor="let item of order.order_items" class="row">
-
-        <p></p>
-    </div>
-
-</div>
 </div>
 <app-footer></app-footer>
