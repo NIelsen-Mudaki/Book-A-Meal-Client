@@ -14,10 +14,12 @@ export class NavbarComponent implements OnInit {
   user:any
   user_obj:any
   cart:any
+  logins:any
   constructor(private CookieService:CookieService, private OrderService:OrderService, public LoginService:LoginService, private UserloginService:UserloginService) { }
   @Output() loggedUser=new EventEmitter<any>(); 
   ngOnInit(): void {
     this.getuser()
+    this.logedinuser()
   }
   getuser(){
       let user = this.CookieService.get('jwt')
@@ -41,5 +43,23 @@ export class NavbarComponent implements OnInit {
   }
   setorderuser(){
     this.OrderService.getuserid(this.user_obj)
+  }
+  logedinuser(){
+    let loginnew = this.CookieService.get("jwt")
+    if(loginnew){
+      this.logins = loginnew
+    }else{
+      this.logins = "nouser"
+    }
+    console.log(this.logins)
+  }
+
+  logoutuser(){
+    let loginnew = this.CookieService.get("jwt")
+    if(loginnew){
+      this.CookieService.delete("jwt")
+      alert("user logged out successfully")
+    }else{
+    }
   }
 }
