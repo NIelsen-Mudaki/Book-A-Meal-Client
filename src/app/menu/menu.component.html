@@ -3,8 +3,11 @@
       <app-navbar></app-navbar>
   </div>
 </div>
-<div class="container">
+<div class="container body">
 <h2 class="text-center green mt-2">Menu</h2>
+<div class="row" *ngIf="menuList.length==undefined">
+  <span>The menu today looks empty. Please wait as we update it.</span>
+</div>
 <div class="row mb-5">
   <div class="col-12 col-md-12 col-lg-6" *ngFor="let menu of menuList;let i=index">
     <div class="card menu-card p-3 ">

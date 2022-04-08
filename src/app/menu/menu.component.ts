@@ -10,6 +10,7 @@ export class MenuComponent implements OnInit {
   menuList:any;
   cart:{}[] =[]
   cartItemCount:number=0
+  menuExists:boolean=false
   constructor(private menuService:MenuService,private addToMenuService:AddToCartService) { }
 
   ngOnInit(): void {
@@ -23,7 +24,8 @@ export class MenuComponent implements OnInit {
     }
     this.menuService.getMenu().subscribe(data=>{
 
-      this.menuList=data
+      this.menuList=data;
+
     })
   }
 
