@@ -1,16 +1,35 @@
+.fullbodylogin{
+    display: flex;
+    height: 100vh;
+}
 #submitbtn{
     background-color: #91972A;
     font-weight: bold;
 }
+.imagessection{
+    width: 50%;
+    height: 100vh;
+    background-image: url(../../assets/images/bgs.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position:bottom right;
+}
 .loginforms{
-    width: 30%;
+    width: 50%;
     margin: auto;
     margin-top: 70px;
-    border: 1px solid rgba(177, 168, 47, .4);
     padding: 10px;
     padding-bottom: 50px;
     border-radius: 20px;
-    box-shadow: 2px 3px 4px rgba(177, 168, 47, .4);
+}
+.blured{
+    background-color: rgba(255,255,255,0.3);
+    height: 100%;
+    width: 100%;
+}
+.loginscontent{
+    width: 60%;
+    margin: auto;
 }
 .form-group{
     margin-top: 10px;
@@ -49,5 +68,24 @@ label{
 @media screen and (max-width: 400px){
     .loginforms{
         width: 100%;
+    }
+}
+@media screen and (max-width: 370px){
+    .loginforms{
+        width: 95%;
+    }
+    .loginscontent{
+        width: 95%;
+    }
+}
+@media screen and (max-width: 850px){
+    .imagessection{
+        display: none;
+    }
+    .loginforms{
+        width: 70%;
+    }
+    .loginscontent{
+        width: 90%;
     }
 }
