@@ -3,6 +3,7 @@ import { OrderService } from '../http-client/order.service';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../services/login.service';
 import { UserloginService } from '../services/userlogin.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class CartComponent implements OnInit {
   cartTotal:any=0
   user:any;
   user_obj:any;
-  constructor(private orderservice:OrderService,private CookieService:CookieService, public LoginService:LoginService, private UserloginService:UserloginService) { }
+  constructor(private toastr: ToastrService,private orderservice:OrderService,private CookieService:CookieService, public LoginService:LoginService, private UserloginService:UserloginService) { }
 
   ngOnInit(): void {
     this.update_cart()
@@ -107,12 +108,11 @@ submit_order(){
     this.orderservice.create_order(requestData).subscribe((data)=>{
   
       this.empty_cart()
-  
-      alert('Order submited successfully')
+      this.toastr.success('Order submited successfully')
     })
   }
   catch{
-    alert('please login to place an order')
+    this.toastr.warning('please login to place an order')
   }
 
 
