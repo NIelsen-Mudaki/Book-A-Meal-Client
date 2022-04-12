@@ -4,6 +4,7 @@ import { GetUserOrdersService } from '../http-client/get-user-orders.service';
 import { UserloginService } from '../services/userlogin.service';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -17,15 +18,30 @@ export class OrderComponent implements OnInit {
   activeUser:any
   user_obj:any;
   token:any
-  constructor(private CookieService:CookieService,public LoginService:LoginService,private orderService:OrderService,private getUserOrdersService:GetUserOrdersService,private UserloginService:UserloginService) { }
+  constructor(private router:Router,private CookieService:CookieService,public LoginService:LoginService,private orderService:OrderService,private getUserOrdersService:GetUserOrdersService,private UserloginService:UserloginService) { }
 
   ngOnInit(): void {
+    this.checklogin()
   }
+
   loadOrders(){
     this.getorders()
 
   }
+  checklogin(){
+    let getcookies = this.CookieService.get("jwt");
+    if(getcookies){
+     console.log(getcookies)
+    }else{
+      this.router.navigate(['/'])
+    }
+    // try{
+    //   let getcookies = this.CookieService.get("jwt");
 
+    // }catch{
+    //   this.router.navigate(['/'])
+    // }
+  }
   setuser(){
     this.user = this.orderService.user
   }
