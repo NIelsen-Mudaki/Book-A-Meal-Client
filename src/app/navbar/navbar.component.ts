@@ -56,6 +56,7 @@ export class NavbarComponent implements OnInit {
       this.logins = loginnew
     }else{
       this.logins = "nouser"
+      this.toastr.info("your current session has expired please login to activate")
     }
     console.log(this.CookieService.get("jwt"))
   }

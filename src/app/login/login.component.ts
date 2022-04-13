@@ -23,7 +23,9 @@ export class LoginComponent implements OnInit {
     }
     this.LoginService.login(credentials).subscribe((data) =>{
       if(typeof(data) == 'object'){
-           this.CookieService.set("jwt", data.jwt)
+           const myDate: Date = new Date();
+           myDate.setHours( myDate.getHours() + 1 );
+           this.CookieService.set("jwt", data.jwt,myDate)
            this.route.navigate(['/'])
       }else{
         this.response = data

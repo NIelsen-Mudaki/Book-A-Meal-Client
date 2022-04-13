@@ -4,7 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../services/login.service';
 import { UserloginService } from '../services/userlogin.service';
 import { ToastrService } from 'ngx-toastr';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
   cartTotal:any=0
   user:any;
   user_obj:any;
-  constructor(private toastr: ToastrService,private orderservice:OrderService,private CookieService:CookieService, public LoginService:LoginService, private UserloginService:UserloginService) { }
+  constructor(private router:Router ,private toastr: ToastrService,private orderservice:OrderService,private CookieService:CookieService, public LoginService:LoginService, private UserloginService:UserloginService) { }
 
   ngOnInit(): void {
     this.update_cart()
@@ -110,6 +110,7 @@ submit_order(){
       this.empty_cart()
       this.toastr.success('Order submited successfully')
     })
+    this.router.navigate(['/orders'])
   }
   catch{
     this.toastr.warning('please login to place an order')
