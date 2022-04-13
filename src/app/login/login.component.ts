@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
       'password':this.password
     }
     this.LoginService.login(credentials).subscribe((data) =>{
-      console.log(data.jwt)
       if(typeof(data) == 'object'){
            this.CookieService.set("jwt", data.jwt)
            this.route.navigate(['/'])

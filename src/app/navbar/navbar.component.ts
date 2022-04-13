@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../services/login.service';
 import { UserloginService } from '../services/userlogin.service';
 import { OrderService } from '../order-service/order.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -15,11 +16,16 @@ export class NavbarComponent implements OnInit {
   user_obj:any
   cart:any
   logins:any
-  constructor(private CookieService:CookieService, private OrderService:OrderService, public LoginService:LoginService, private UserloginService:UserloginService) { }
+  constructor(private toastr: ToastrService,public CookieService:CookieService, private OrderService:OrderService, public LoginService:LoginService, private UserloginService:UserloginService) { }
   @Output() loggedUser=new EventEmitter<any>(); 
   ngOnInit(): void {
     this.getuser()
     this.logedinuser()
+    this.logcookie()
+  }
+  logcookie(){
+    let cookies = this.CookieService.get("jwt")
+    console.log(cookies)
   }
   getuser(){
       let user = this.CookieService.get('jwt')
@@ -51,14 +57,14 @@ export class NavbarComponent implements OnInit {
     }else{
       this.logins = "nouser"
     }
-    console.log(this.logins)
+    console.log(this.CookieService.get("jwt"))
   }
 
   logoutuser(){
     let loginnew = this.CookieService.get("jwt")
     if(loginnew){
       this.CookieService.delete("jwt")
-      alert("user logged out successfully")
+      this.toastr.info("user logged out successfully")
     }else{
     }
   }

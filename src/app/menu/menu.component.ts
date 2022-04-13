@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../http-client/menu.service';
 import { AddToCartService } from '../http-client/add-to-cart.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -11,7 +12,7 @@ export class MenuComponent implements OnInit {
   cart:{}[] =[]
   cartItemCount:number=0
   menuExists:boolean=false
-  constructor(private menuService:MenuService,private addToMenuService:AddToCartService) { }
+  constructor(private toastr: ToastrService,private menuService:MenuService,private addToMenuService:AddToCartService) { }
 
   ngOnInit(): void {
     try{
