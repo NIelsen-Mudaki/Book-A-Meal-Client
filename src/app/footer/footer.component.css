@@ -1,5 +1,6 @@
 footer{
     background-color: #91972A;
+    color: #FFFFFF;
 }
 .down{
     text-align: center;
@@ -17,7 +18,10 @@ ul li{
     color: #91972A !important;
 }
 #submitbtn{
-    box-shadow: 2px 2px 3px gainsboro;
+    /* box-shadow: 2px 2px 3px gainsboro; */
+    background-color: #FFFFFF;
+    color: #91972A !important;
+    font-weight: bold;
 }
 .form-group{
     margin-top: 10px;

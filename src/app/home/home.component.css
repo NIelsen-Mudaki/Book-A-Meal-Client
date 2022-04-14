@@ -74,9 +74,11 @@ nav{
 }
 .food_items{
     display: flex;
+    justify-content: space-evenly;
+    row-gap: 30px;
     flex-wrap: wrap;
-    column-gap: 40px;
-    row-gap: 40px;
+    width: fit-content;
+    margin: auto;
     margin-bottom: 40px;
 }
 .flex_btn_price .price{
@@ -138,4 +140,7 @@ nav{
 }
 .services h3{
     color: #91972A;
+}
+.food_items{
+    margin: auto;
 }
