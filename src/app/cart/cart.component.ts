@@ -86,7 +86,10 @@ empty_cart(){
 
 
 submit_order(){
-
+  if(this.cart.length == 0){
+      this.toastr.warning("please add items in your cart.")
+      return
+  }
   try{
     let customer:any=this.UserloginService.user
     console.log('logged in');
@@ -97,9 +100,9 @@ submit_order(){
   
     }
     let current_order=JSON.parse(localStorage.getItem("cart") || "")
-  
+
     let requestData={
-  
+
       "customer_id":customer.id,
       "order_total_price":this.cartTotal,
       "order-items":this.cart
